@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/main.css">
+    <title>Panel del Dueño</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Panel del Dueño</h1>
+    </div>
+    <div class="container">
+        <button onclick="window.location.href='registro/barco.html'">Registrar Barco</button>
+        <button onclick="window.location.href='historial_viajes.html'">Ver Historial de Viajes</button>
+        <button onclick="window.location.href='registro/viaje.html'">Registrar Viaje</button>
+        <button onclick="window.location.href='localizacion_gps.html'">Localización GPS</button>
+        <button onclick="window.location.href='barcos.html'">Ver Barcos Registrados</button>
+        <button onclick="window.location.href='modificar_barco.html'">Modificar Barco</button>
+        <button onclick="confirmarEliminacion()">Eliminar Barco</button>
+    </div>
+
+    <div id="modalConfirmacion" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <p>¿Está seguro de que desea eliminar el barco seleccionado?</p>
+            <button onclick="eliminarBarco()">Confirmar Eliminación</button>
+        </div>
+    </div>
+
+    <script>
+        function confirmarEliminacion() {
+            document.getElementById("modalConfirmacion").style.display = "block";
+        }
+
+        function cerrarModal() {
+            document.getElementById("modalConfirmacion").style.display = "none";
+        }
+
+        function eliminarBarco() {
+            // Aquí iría la lógica para eliminar el barco
+            alert("Barco eliminado.");
+            cerrarModal();
+            // Redirigir o actualizar la página según sea necesario
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <title>Registrar Barco</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Registrar Barco</h1>
+    </div>
+    <div class="container">
+        <form id="registroBarco" onsubmit="guardarBarco(event)">
+            <div class="input-group">
+                <label for="denominacion">Denominación</label>
+                <input type="text" id="denominacion" required>
+            </div>
+            <div class="input-group">
+                <label for="paisRegistro">País de Registro</label>
+                <input type="text" id="paisRegistro" required>
+            </div>
+            <button type="submit" class="button">Guardar</button>
+        </form>
+    </div>
+
+    <script>
+        function guardarBarco(event) {
+            event.preventDefault();
+            // Aquí iría la lógica para guardar la información del barco
+            alert("Barco registrado.");
+            window.location.href = "../dashboard.html"; // Redirigir al panel del dueño
+        }
+    </script>
+</body>
+</html>

@@ -4,22 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="./html/./admin/dashboard.html">
-    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="css/main.css">
+    <title>Login</title>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Iniciar Sesión</h2>
-        <div class="input-group">
-            <label for="username">Nombre de Usuario</label>
-            <input type="text" id="username" placeholder="Ingrese su nombre de usuario">
-        </div>
-        <div class="input-group">
-            <label for="password">Contraseña</label>
-            <input type="password" id="password" placeholder="Ingrese su contraseña">
-        </div>
-        <button class="btn" onclick="login()">Iniciar Sesión</button>
+    <div class="header">
+        <h1>Iniciar Sesión</h1>
     </div>
+    <div class="container">
+        <form id="loginForm" onsubmit="login(event)">
+            <div class="input-group">
+                <label for="username">Nombre de Usuario</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="button">Iniciar Sesión</button>
+        </form>
+    </div>
+
+    <script>
+        function login(event) {
+            event.preventDefault(); // Prevenir el envío del formulario
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Pre-carga de usuarios
+            const users = [
+                { username: 'admin', password: 'admin123', role: 'admin' },
+                { username: 'dueno1', password: 'dueno123', role: 'dueno' },
+                { username: 'supervisor1', password: 'supervisor123', role: 'supervisor' },
+                { username: 'gerente_op', password: 'gerente123', role: 'gerente_operaciones' },
+                { username: 'gerente_fin', password: 'gerente123', role: 'gerente_financiero' }
+            ];
+
+            const user = users.find(u => u.username === username && u.password === password);
+            if (user) {
+                window.location.href = `/html/${user.role}/dashboard.html`;
+            } else {
+                alert('Usuario o contraseña incorrectos');
+            }
+        }
+    </script>
 </body>
-<script src="./scripts/login.js"></script>
 </html>

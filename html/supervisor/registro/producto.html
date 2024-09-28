@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <title>Registrar Producto</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Registrar Producto</h1>
+    </div>
+    <div class="container">
+        <form id="registroProducto" onsubmit="guardarProducto(event)">
+            <div class="input-group">
+                <label for="nombreProducto">Nombre del Producto</label>
+                <input type="text" id="nombreProducto" required>
+            </div>
+            <div class="input-group">
+                <label for="nomenclatura">Nomenclatura</label>
+                <input type="text" id="nomenclatura" required>
+            </div>
+            <div class="input-group">
+                <label for="tipoProducto">Tipo</label>
+                <select id="tipoProducto" required>
+                    <option value="primario">Producto Primario</option>
+                    <option value="manufactura">Manufactura</option>
+                </select>
+            </div>
+            <button type="submit" class="button">Guardar</button>
+        </form>
+    </div>
+
+    <script>
+        function guardarProducto(event) {
+            event.preventDefault();
+            // Aquí iría la lógica para guardar la información del producto
+            alert("Producto registrado.");
+            window.location.href = "../dashboard.html"; // Redirigir al panel del supervisor
+        }
+    </script>
+</body>
+</html>

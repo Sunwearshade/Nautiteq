@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/main.css">
+    <title>Panel del Supervisor de Carga</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Panel del Supervisor de Carga</h1>
+    </div>
+    <div class="container">
+        <button onclick="window.location.href='registro/producto.html'">Registrar Productos</button>
+        <button onclick="window.location.href='modificar_producto.html'">Modificar Productos</button>
+        <button onclick="confirmarEliminacion()">Eliminar Productos</button>
+    </div>
+
+    <div id="modalConfirmacion" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <p>¿Está seguro de que desea eliminar el registro del producto seleccionado?</p>
+            <button onclick="eliminarProducto()">Confirmar Eliminación</button>
+        </div>
+    </div>
+
+    <script>
+        function confirmarEliminacion() {
+            document.getElementById("modalConfirmacion").style.display = "block";
+        }
+
+        function cerrarModal() {
+            document.getElementById("modalConfirmacion").style.display = "none";
+        }
+
+        function eliminarProducto() {
+            // Aquí iría la lógica para eliminar el producto
+            alert("Producto eliminado.");
+            cerrarModal();
+            // Redirigir o actualizar la página según sea necesario
+        }
+    </script>
+</body>
+</html>

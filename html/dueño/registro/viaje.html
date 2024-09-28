@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <title>Registrar Viaje</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Registrar Viaje</h1>
+    </div>
+    <div class="container">
+        <form id="registroViaje" onsubmit="guardarViaje(event)">
+            <div class="input-group">
+                <label for="puertoOrigen">Puerto de Origen</label>
+                <input type="text" id="puertoOrigen" required>
+            </div>
+            <div class="input-group">
+                <label for="puertoDestino">Puerto de Destino</label>
+                <input type="text" id="puertoDestino" required>
+            </div>
+            <div class="input-group">
+                <label for="fechaInicio">Fecha de Inicio</label>
+                <input type="date" id="fechaInicio" required>
+            </div>
+            <div class="input-group">
+                <label for="fechaFin">Fecha de Finalización</label>
+                <input type="date" id="fechaFin" required>
+            </div>
+            <button type="submit" class="button">Guardar</button>
+        </form>
+    </div>
+
+    <script>
+        function guardarViaje(event) {
+            event.preventDefault();
+            // Aquí iría la lógica para guardar la información del viaje
+            alert("Viaje registrado.");
+            window.location.href = "../dashboard.html"; // Redirigir al panel del dueño
+        }
+    </script>
+</body>
+</html>
