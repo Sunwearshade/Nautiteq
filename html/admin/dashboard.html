@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/main.css">
+    <title>Panel del Administrador</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Panel del Administrador</h1>
+    </div>
+    <div class="container">
+        <button class="button" onclick="window.location.href='registro/dueno.html'">Registrar Dueño</button>
+        <button class="button" onclick="window.location.href='registro/empleado.html'">Registrar Empleado</button>
+        <button class="button" onclick="window.location.href='registro/supervisor_carga.html'">Registrar Supervisor de Carga</button>
+        <button class="button" onclick="window.location.href='registro/gerente_operaciones.html'">Registrar Gerente de Operaciones</button>
+        <button class="button" onclick="window.location.href='registro/gerente_financiero.html'">Registrar Gerente Financiero</button>
+        <button class="button" onclick="window.location.href='modificar_usuario.html'">Modificar Usuario</button>
+        <button class="button" onclick="openModal()">Eliminar Usuario</button>
+    </div>
+
+    <!-- Modal para Confirmar Eliminación -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Confirmar Eliminación</h2>
+            <p>¿Estás seguro de que deseas eliminar este usuario?</p>
+            <button class="button" onclick="confirmDelete()">Confirmar eliminación</button>
+            <button class="button" onclick="closeModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("modal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        function confirmDelete() {
+            // Lógica para eliminar el usuario seleccionado
+            alert("Usuario eliminado.");
+            closeModal();
+        }
+    </script>
+</body>
+</html>

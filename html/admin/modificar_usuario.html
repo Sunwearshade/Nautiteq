@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/main.css">
+    <title>Modificar Usuario</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Modificar Usuario</h1>
+    </div>
+    <div class="container">
+        <form id="modificarUsuario" onsubmit="guardarCambios(event)">
+            <div class="input-group">
+                <label for="usuarioSeleccionado">Seleccionar Usuario</label>
+                <select id="usuarioSeleccionado" required onchange="cargarDatos()">
+                    <option value="">Seleccione...</option>
+                    <option value="dueño">Dueño</option>
+                    <option value="empleado">Empleado</option>
+                    <option value="supervisor">Supervisor de Carga</option>
+                    <option value="gerenteOperaciones">Gerente de Operaciones</option>
+                    <option value="gerenteFinanciero">Gerente Financiero</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="username">Nombre de Usuario</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password">
+            </div>
+            <div class="input-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" required>
+            </div>
+            <div class="input-group">
+                <label for="apellidoPaterno">Apellido Paterno</label>
+                <input type="text" id="apellidoPaterno" required>
+            </div>
+            <div class="input-group">
+                <label for="apellidoMaterno">Apellido Materno</label>
+                <input type="text" id="apellidoMaterno" required>
+            </div>
+            <button type="submit" class="button">Guardar Cambios</button>
+        </form>
+    </div>
+
+    <script>
+        function cargarDatos() {
+            // Aquí iría la lógica para cargar los datos del usuario seleccionado
+            // Ejemplo de llenado de datos ficticios
+            document.getElementById("username").value = "usuarioEjemplo";
+            document.getElementById("nombre").value = "Nombre Ejemplo";
+            document.getElementById("apellidoPaterno").value = "Apellido Paterno Ejemplo";
+            document.getElementById("apellidoMaterno").value = "Apellido Materno Ejemplo";
+        }
+
+        function guardarCambios(event) {
+            event.preventDefault();
+            // Aquí iría la lógica para guardar los cambios
+            alert("Cambios guardados.");
+            window.location.href = "dashboard.html"; // Redirigir al panel principal
+        }
+    </script>
+</body>
+</html>

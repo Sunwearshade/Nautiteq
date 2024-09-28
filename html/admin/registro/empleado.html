@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <title>Registrar Empleado</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Registrar Empleado</h1>
+    </div>
+    <div class="container">
+        <form id="registroEmpleado" onsubmit="guardarEmpleado(event)">
+            <div class="input-group">
+                <label for="username">Nombre de Usuario</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="input-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" required>
+            </div>
+            <div class="input-group">
+                <label for="apellidoPaterno">Apellido Paterno</label>
+                <input type="text" id="apellidoPaterno" required>
+            </div>
+            <div class="input-group">
+                <label for="apellidoMaterno">Apellido Materno</label>
+                <input type="text" id="apellidoMaterno" required>
+            </div>
+            <div class="input-group">
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" required>
+            </div>
+            <div class="input-group">
+                <label for="sexo">Sexo</label>
+                <select id="sexo" required>
+                    <option value="">Seleccione...</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="legajo">Legajo</label>
+                <input type="text" id="legajo" required>
+            </div>
+            <button type="submit" class="button">Guardar</button>
+        </form>
+    </div>
+
+    <script>
+        function guardarEmpleado(event) {
+            event.preventDefault();
+            // Aquí iría la lógica para guardar la información del empleado
+            alert("Empleado registrado.");
+            window.location.href = "../dashboard.html"; // Redirigir al panel principal
+        }
+    </script>
+</body>
+</html>
