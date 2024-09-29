@@ -18,7 +18,6 @@
                     <option value="">Seleccione...</option>
                     <option value="producto1">Producto 1</option>
                     <option value="producto2">Producto 2</option>
-                    <!-- Agregar más productos según sea necesario -->
                 </select>
             </div>
             <div class="input-group" id="datosProducto" style="display:none;">
@@ -38,7 +37,6 @@
 
     <script>
         function cargarDatosProducto() {
-            // Aquí iría la lógica para cargar los datos del producto seleccionado
             document.getElementById("datosProducto").style.display = "block";
             document.getElementById("nombreProducto").value = "Nombre Producto Ejemplo"; // Ejemplo de carga
             document.getElementById("nomenclatura").value = "Nomenclatura Ejemplo"; // Ejemplo de carga
@@ -47,9 +45,8 @@
 
         function guardarCambios(event) {
             event.preventDefault();
-            // Aquí iría la lógica para actualizar la información del producto
             alert("Información del producto actualizada.");
-            window.location.href = "../dashboard.html"; // Redirigir al panel del supervisor
+            window.location.href = "../dashboard.html"; 
         }
     </script>
 </body>

@@ -1,8 +1,9 @@
-function login() {
+function login(event) {
+    event.preventDefault(); 
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    // Pre-carga de usuarios
+    // Pre-carga de roles
     const users = [
         { username: 'admin', password: 'admin123', role: 'admin' },
         { username: 'dueno1', password: 'dueno123', role: 'dueno' },
@@ -13,7 +14,7 @@ function login() {
 
     const user = users.find(u => u.username === username && u.password === password);
     if (user) {
-        window.location.href = `/${user.role}/dashboard.html`;
+        window.location.href = `/html/${user.role}/dashboard.html`;
     } else {
         alert('Usuario o contraseña incorrectos');
     }

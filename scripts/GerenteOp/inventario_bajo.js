@@ -7,7 +7,6 @@ function consultInventory() {
     const inventoryData = [
         { country: 'Argentina', product: 'Producto A', date: '2024-01-01', quantity: 50 },
         { country: 'Chile', product: 'Producto B', date: '2024-01-10', quantity: 20 },
-        // Agregar más datos según sea necesario
     ];
 
     const filtered = inventoryData.filter(item => 
@@ -15,7 +14,7 @@ function consultInventory() {
     );
 
     let resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = ''; // Limpiar resultados anteriores
+    resultDiv.innerHTML = ''; 
 
     if (filtered.length > 0) {
         filtered.forEach(item => {
