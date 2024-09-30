@@ -35,19 +35,7 @@
         </form>
     </div>
 
-    <script>
-        function cargarDatosProducto() {
-            document.getElementById("datosProducto").style.display = "block";
-            document.getElementById("nombreProducto").value = "Nombre Producto Ejemplo"; // Ejemplo de carga
-            document.getElementById("nomenclatura").value = "Nomenclatura Ejemplo"; // Ejemplo de carga
-            document.getElementById("tipoProducto").value = "primario"; // Ejemplo de carga
-        }
-
-        function guardarCambios(event) {
-            event.preventDefault();
-            alert("Información del producto actualizada.");
-            window.location.href = "../dashboard.html"; 
-        }
+    <script src="../../scripts/ScriptSupervisor/modificar_producto.js">
     </script>
 </body>
 </html>
