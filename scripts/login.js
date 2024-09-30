@@ -14,7 +14,7 @@ function login(event) {
 
     const user = users.find(u => u.username === username && u.password === password);
     if (user) {
-        window.location.href = `/html/${user.role}/dashboard.html`;
+        window.location.href = `html/${user.role}/dashboard.html`;
     } else {
         alert('Usuario o contraseña incorrectos');
     }
