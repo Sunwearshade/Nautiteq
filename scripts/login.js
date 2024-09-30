@@ -3,10 +3,10 @@ function login(event) {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    // Pre-carga de roles
+    // Pre-carga de roles con los nombres correctos
     const users = [
         { username: 'admin', password: 'admin123', role: 'admin' },
-        { username: 'dueno1', password: 'dueno123', role: 'dueno' },
+        { username: 'dueno1', password: 'dueno123', role: 'dueño' },  // Cambiado a "dueño"
         { username: 'supervisor1', password: 'supervisor123', role: 'supervisor' },
         { username: 'gerente_op', password: 'gerente123', role: 'gerente_operaciones' },
         { username: 'gerente_fin', password: 'gerente123', role: 'gerente_financiero' }

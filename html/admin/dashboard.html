@@ -24,8 +24,16 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Confirmar Eliminación</h2>
+            
+            <label for="userId">Buscar usuario por ID:</label>
+            <input type="text" id="userId" name="userId" placeholder="Ingrese ID de usuario">
+            <button class="button" onclick="searchUser()">Buscar</button>
+            
+            <p id="userFound" style="display:none;">Usuario encontrado: ID <span id="userIdFound"></span></p>
+            
             <p>¿Estás seguro de que deseas eliminar este usuario?</p>
-            <button class="button" onclick="confirmDelete()">Confirmar eliminación</button>
+            
+            <button class="button" id="confirmDeleteBtn" onclick="confirmDelete()" disabled>Confirmar eliminación</button>
             <button class="button" onclick="closeModal()">Cancelar</button>
         </div>
     </div>
@@ -39,8 +47,23 @@
             document.getElementById("modal").style.display = "none";
         }
 
+        function searchUser() {
+            var userId = document.getElementById("userId").value;
+            
+            if (userId) {
+                // Simulamos que encontramos el usuario (solo para la parte de front-end aun pendiente backend)
+                document.getElementById("userFound").style.display = "block";
+                document.getElementById("userIdFound").innerText = userId;
+
+                document.getElementById("confirmDeleteBtn").disabled = false;
+            } else {
+                alert("Por favor, ingresa un ID válido.");
+            }
+        }
+
         function confirmDelete() {
-            alert("Usuario eliminado.");
+            var userId = document.getElementById("userId").value;
+            alert("Usuario con ID " + userId + " eliminado.");
             closeModal();
         }
     </script>
