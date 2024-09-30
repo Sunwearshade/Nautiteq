@@ -131,3 +131,7 @@ p {
 #cerrar-sesion:hover {
     background-color: #c82333; 
 }
+
+button:disabled {
+    cursor: not-allowed; /* Cambiar cursor al pasar sobre el botón */
+}
