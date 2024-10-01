@@ -19,11 +19,11 @@
             <button class="button" onclick="window.location.href='registro/gerente_operaciones.html'">Registrar Gerente de Operaciones</button>
             <button class="button" onclick="window.location.href='registro/gerente_financiero.html'">Registrar Gerente Financiero</button>
             <button class="button" onclick="window.location.href='modificar_usuario.html'">Modificar Usuario</button>
-            <button class="button" onclick="openModal()">Eliminar Usuario</button>
+            <button id="eliminar-usuario-btn" onclick="openModal()">Eliminar Usuario</button>
         </div>
     </main>
 
-    <div id="modal" class="modal">
+    <div id="modal" class="modal" style="display: none;">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Confirmar Eliminación</h2>
@@ -32,11 +32,15 @@
             <button class="button" onclick="searchUser()">Buscar</button>
             <p id="userFound" style="display:none;">Usuario encontrado: ID <span id="userIdFound"></span></p>
             <p>¿Estás seguro de que deseas eliminar este usuario?</p>
-            <button class="button" id="confirmDeleteBtn" onclick="confirmDelete()" disabled>Confirmar eliminación</button>
-            <button class="button" onclick="closeModal()">Cancelar</button>
+            <div class="modal-button-group">
+                <button class="button" id="confirmDeleteBtn" onclick="confirmDelete()" disabled>Confirmar eliminación</button>
+                <button class="button" onclick="closeModal()">Cancelar</button>
+            </div>
         </div>
     </div>
+    
+    </div>
 
-    <script src="../../scripts/ScriptsAdmin/dashboard.js"></script>
+    <script src="../../scripts/ScriptsAdmin/dashboard.js"></script> 
 </body>
 </html>
