@@ -5,7 +5,6 @@ function cleanInput($data, $conn) {
     return mysqli_real_escape_string($conn, trim($data));
 }
 
-// Insertar alumno
 if (isset($_POST['registroDueno'])) {
     $username = $_POST['username_dueno'];
     $password_dueno = $_POST['password_dueno'];

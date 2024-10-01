@@ -5,32 +5,32 @@ function cleanInput($data, $conn) {
     return mysqli_real_escape_string($conn, trim($data));
 }
 
-// Insertar alumno
-if (isset($_POST['registroDueno'])) {
-    $username = $_POST['username_dueno'];
-    $password_dueno = $_POST['password_dueno'];
-    $nombre_dueno = $_POST['nombre_dueno'];
-    $apaterno_dueno = $_POST['apaterno_dueno'];
-    $amaterno_dueno = $_POST['amaterno_dueno'];
-    $tipo_doc = $_POST['tipo_doc'];
-    $num_doc = $_POST['num_doc'];
+if (isset($_POST['registroEmpleado'])) {
+    $username = $_POST['username'];
+    $password= $_POST['password'];
+    $nombre = $_POST['nombre'];
+    $apaterno = $_POST['apaterno'];
+    $amaterno = $_POST['amaterno'];
+    $edad = $_POST['edad'];
+    $sexo = $_POST['sexo'];
+    $legajo = $_POST['legajo'];
 
-    if (!empty($username) && !empty($password_dueno) && !empty($nombre_dueno) && !empty($apaterno_dueno) && !empty($amaterno_dueno) && !empty($tipo_doc) && !empty($num_doc)) {
-        $query = "INSERT INTO dueno (nombre_dueno, apaterno_dueno, amaterno_dueno, username_dueno, tipo, n_documento ) VALUES (?, ?, ?, ?, ?, ?)";
-        $query2 = "INSERT INTO users (username, password, role) VALUES (?, ?, 'dueno')";
+    if (!empty($username) && !empty($password) && !empty($nombre) && !empty($apaterno) && !empty($amaterno) && !empty($edad) && !empty($sexo) && !empty($legajo)) {
+        $query = "INSERT INTO empleado (nombre_empleado, apaterno_empleado, amaterno_empleado, username_empleado, edad, sexo, legajo ) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query2 = "INSERT INTO users (username, password, role) VALUES (?, ?, 'empleado')";
 
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sssssi", $nombre_dueno, $apaterno_dueno, $amaterno_dueno, $username, $tipo_doc, $num_doc);
+        $stmt->bind_param("ssssiss", $nombre, $apaterno, $amaterno, $username, $edad, $sexo, $legajo);
         $stmt2 = $conn->prepare($query2);
         $stmt2->bind_param("ss", $username, $password);
 
         if ($stmt->execute() && $stmt2->execute()) {
             echo "<script>
-                        alert('Se ha agregado al dueño con éxito.');
-                        window.location.href = '/nautiteq/html/admin/registro/dueno.php';</script>;
+                        alert('Se ha agregado al empleado con éxito.');
+                        window.location.href = '/nautiteq/html/admin/registro/empleado.php';</script>;
                 </script>";
         } else {
-            echo "Error al insertar al dueño: " . $conn->error;
+            echo "Error al insertar al empleado: " . $conn->error;
         }
     } else {
         echo '<script>alert("Por favor, complete todos los campos.");</script>';

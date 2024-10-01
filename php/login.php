@@ -114,9 +114,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: html/gerente_operaciones/dashboard.php");
                 exit();
             } 
-            else if ($user['role'] === 'supervisor') {
-                $query_supervisor = "SELECT * FROM supervisor WHERE username_supervisor = ?";
-                $stmt5 = $conn->prepare($query_supervisor);
+            else if ($user['role'] === 'empleado') {
+                $query_empleado = "SELECT * FROM empleado WHERE username_empleado = ?";
+                $stmt5 = $conn->prepare($query_empleado);
 
                 if ($stmt5 === false) {
                     die("Error al preparar la consulta: " . $conn->error);
@@ -124,14 +124,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 $stmt5->bind_param("s", $username);
                 $stmt5->execute();
-                $result_supervisor = $stmt5->get_result();
+                $result_empleado = $stmt5->get_result();
 
-                if ($result_supervisor->num_rows === 1) {
-                    $user_supervisor = $result_supervisor->fetch_assoc();
-                    $_SESSION['supervisor_id'] = $user_supervisor['supervisor_id'];
-                    $_SESSION['nombre_supervisor'] = $user_supervisor['nombre_supervisor'];
+                if ($result_empleado->num_rows === 1) {
+                    $user_empleado = $result_empleado->fetch_assoc();
+                    $_SESSION['empleado_id'] = $user_supervisor['empleado_id'];
+                    $_SESSION['nombre_empleado'] = $user_supervisor['nombre_empleado'];
                 } else {
-                    die("Error al obtener ID del supervisor.");
+                    die("Error al obtener ID del empleado.");
                 }
 
                 $stmt5->close();

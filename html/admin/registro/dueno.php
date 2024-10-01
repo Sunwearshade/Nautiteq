@@ -47,7 +47,6 @@
         </form>
     </div>
 
-    <script src="../../../scripts/ScriptsAdmin/dueno.js">
     </script>
 </body>
 </html>
