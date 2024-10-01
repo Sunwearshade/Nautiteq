@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/admin.css">
     <title>Panel del Administrador</title>
+    <?php
+    ?>
 </head>
 <body>
     <header class="header">
@@ -14,11 +16,11 @@
 
     <main class="container">
         <div class="button-group">
-            <button class="button" onclick="window.location.href='registro/dueno.html'">Registrar Dueño</button>
-            <button class="button" onclick="window.location.href='registro/empleado.html'">Registrar Empleado (Supervisor de carga)</button>
-            <button class="button" onclick="window.location.href='registro/gerente_operaciones.html'">Registrar Gerente de Operaciones</button>
-            <button class="button" onclick="window.location.href='registro/gerente_financiero.html'">Registrar Gerente Financiero</button>
-            <button class="button" onclick="window.location.href='modificar_usuario.html'">Modificar Usuario</button>
+            <button class="button" onclick="window.location.href='registro/dueno.php'">Registrar Dueño</button>
+            <button class="button" onclick="window.location.href='registro/empleado.php'">Registrar Empleado (Supervisor de carga)</button>
+            <button class="button" onclick="window.location.href='registro/gerente_operaciones.php'">Registrar Gerente de Operaciones</button>
+            <button class="button" onclick="window.location.href='registro/gerente_financiero.php'">Registrar Gerente Financiero</button>
+            <button class="button" onclick="window.location.href='modificar_usuario.php'">Modificar Usuario</button>
             <button id="eliminar-usuario-btn" onclick="openModal()">Eliminar Usuario</button>
         </div>
     </main>

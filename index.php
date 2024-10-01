@@ -6,25 +6,28 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/main.css">
     <title>Login</title>
+    <?php
+    require 'php/login.php'
+    ?>
 </head>
 <body>
     <div class="header">
         <h1>Iniciar Sesión</h1>
     </div>
     <div class="container">
-        <form id="loginForm" onsubmit="login(event)">
+        <form id="loginForm" method="post">
             <div class="input-group">
                 <label for="username">Nombre de Usuario</label>
-                <input type="text" id="username" required>
+                <input type="text" id="username" name="username" required>
             </div>
             <div class="input-group">
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" required>
+                <input type="password" id="password" name="password" required>
             </div>
             <button type="submit" class="button">Iniciar Sesión</button>
         </form>
     </div>
 
-    <script src="./scripts/login.js"></script>
+   
 </body>
 </html>
