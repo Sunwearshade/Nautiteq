@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="../../css/main.css">
 </head>
 <body>
-    <div class="container">
+    <header class="header">
         <h1>Panel del Gerente Financiero</h1>
-        <button onclick="window.location.href='viajes_mismo_pais.html'">Consultar viajes en el mismo país</button>
-        <button onclick="window.location.href='viajes_pais_determinado.html'">Consultar viajes en un país determinado</button>
-    </div>
-    <br>
+    </header>
+
+    <main class="container">
+        <div class="button-group">
+            <button class="button" onclick="window.location.href='viajes_mismo_pais.html'">Consultar viajes en el mismo país</button>
+            <button class="button" onclick="window.location.href='viajes_pais_determinado.html'">Consultar viajes en un país determinado</button>
+        </div>
+    </main>
+
     <button id="cerrar-sesion" onclick="window.location.href='../../index.html'">Cerrar Sesión</button>
 </body>
 </html>

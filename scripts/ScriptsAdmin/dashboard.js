@@ -25,3 +25,16 @@ function confirmDelete() {
     alert("Usuario con ID " + userId + " eliminado.");
     closeModal();
 }
+
+function abrirModal() {
+    document.getElementById('modalEliminar').style.display = 'flex';
+}
+
+function cerrarModal() {
+    document.getElementById('modalEliminar').style.display = 'none';
+}
+
+function confirmarEliminacion() {
+    // Lógica para eliminar usuario
+    cerrarModal();
+}
