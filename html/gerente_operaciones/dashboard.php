@@ -18,6 +18,6 @@
         </div>
     </main>
 
-    <button id="cerrar-sesion" onclick="window.location.href='../../index.html'">Cerrar Sesión</button>
+    <button id="cerrar-sesion" onclick="window.location.href='../../index.php'">Cerrar Sesión</button>
 </body>
 </html>

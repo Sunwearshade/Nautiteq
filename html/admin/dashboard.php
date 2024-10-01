@@ -11,7 +11,7 @@
 <body>
     <header class="header">
         <h1>Panel del Administrador</h1>
-        <button id="cerrar-sesion" onclick="window.location.href='../../index.html'">Cerrar Sesión</button>
+        <button id="cerrar-sesion" onclick="window.location.href='../../index.php'">Cerrar Sesión</button>
     </header>
 
     <main class="container">

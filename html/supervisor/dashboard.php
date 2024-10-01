@@ -19,7 +19,7 @@
         </div>
     </main>
 
-    <button id="cerrar-sesion" onclick="window.location.href='../../index.html'">Cerrar Sesión</button>
+    <button id="cerrar-sesion" onclick="window.location.href='../../index.php'">Cerrar Sesión</button>
 
     <div id="modalConfirmacion" class="modal">
         <div class="modal-content">
