@@ -2,8 +2,8 @@ function cargarDatos() {
 
     document.getElementById("username").value = "usuarioEjemplo";
     document.getElementById("nombre").value = "Nombre Ejemplo";
-    document.getElementById("apellidoPaterno").value = "Apellido Paterno Ejemplo";
-    document.getElementById("apellidoMaterno").value = "Apellido Materno Ejemplo";
+    document.getElementById("apellidoPaterno").value = "Apellido Ejemplo";
+    document.getElementById("apellidoMaterno").value = "Apellido Ejemplo";
 }
 
 function guardarCambios(event) {
