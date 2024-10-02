@@ -1,13 +1,27 @@
-function cargarDatos() {
+function cargarUsuariosPorRol(rol) {
+    if (rol === "") return;
 
-    document.getElementById("username").value = "usuarioEjemplo";
-    document.getElementById("nombre").value = "Nombre Ejemplo";
-    document.getElementById("apellidoPaterno").value = "Apellido Ejemplo";
-    document.getElementById("apellidoMaterno").value = "Apellido Ejemplo";
+    fetch(`/nautiteq/php/php_admin/modificar_usuario.php?rol=` + rol)
+    .then(response => response.json())
+    .then(data => {
+        const listaUsuarios = document.getElementById('listaUsuarios');
+        listaUsuarios.innerHTML = `<option value="">Seleccione un usuario...</option>`;
+        data.forEach(usuario => {
+            listaUsuarios.innerHTML += `<option value="${usuario.id}">${usuario.username}</option>`;
+        });
+    })
+    .catch(error => console.error('Error al cargar usuarios:', error));
 }
 
-function guardarCambios(event) {
-    event.preventDefault();
-    alert("Cambios guardados.");
-    window.location.href = "dashboard.html";
-}
+function autocompletarUsuario(username, rol) {
+    if (username === "") return;
+
+    fetch('/nautiteq/php/php_admin/modificar_usuario.php?username=' + username + '&rol=' + rol)
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('nombre').value = data.nombre;
+        document.getElementById('apellidoPaterno').value = data.apellidoPaterno;
+        document.getElementById('apellidoMaterno').value = data.apellidoMaterno;
+    })
+    .catch(error => console.error('Error al autocompletar usuario:', error));
+};

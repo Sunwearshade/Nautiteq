@@ -5,7 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/admin.css">
     <title>Panel del Administrador</title>
+    <script src="../../scripts/ScriptsAdmin/dashboard.js" defer></script>
+    <script>
+        function confirmDelete(username) {
+            if (confirm("¿Está seguro de que desea eliminar al usuario?")) {
+                window.location.href = "/nautiteq/php/php_admin/borrar_usuario.php?username=" + encodeURIComponent(username) + "&confirmar_eliminacion=1";
+            }
+        }
+
+        function handleConfirmDelete() {
+            const userFoundText = document.getElementById('userFound').innerText;
+            const username = userFoundText.split(": ")[1]; // Extraer el nombre de usuario
+            confirmDelete(username);
+        }
+    </script>
     <?php
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/nautiteq/php/php_admin/borrar_usuario.php';
     ?>
 </head>
 <body>
@@ -29,20 +44,16 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Confirmar Eliminación</h2>
-            <label for="userId">Buscar usuario por ID:</label>
-            <input type="text" id="userId" name="userId" placeholder="Ingrese ID de usuario">
-            <button class="button" onclick="searchUser()">Buscar</button>
-            <p id="userFound" style="display:none;">Usuario encontrado: ID <span id="userIdFound"></span></p>
+            <label for="userId">Buscar usuario por Username:</label>
+            <input type="text" id="username" name="searchUser" placeholder="Ingrese el nombre de usuario">
+            <button class="button" id="searchButton" onclick="buscarUsuario()">Buscar</button>
+            <br><p id="userFound"></p>
             <p>¿Estás seguro de que deseas eliminar este usuario?</p>
             <div class="modal-button-group">
-                <button class="button" id="confirmDeleteBtn" onclick="confirmDelete()" disabled>Confirmar eliminación</button>
+                <button class="button" id="confirmDeleteBtn" onclick="handleConfirmDelete()" disabled>Confirmar eliminación</button>
                 <button class="button" onclick="closeModal()">Cancelar</button>
             </div>
         </div>
     </div>
-    
-    </div>
-
-    <script src="../../scripts/ScriptsAdmin/dashboard.js"></script> 
 </body>
 </html>
