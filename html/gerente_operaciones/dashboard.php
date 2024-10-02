@@ -13,8 +13,8 @@
 
     <main class="container">
         <div class="button-group">
-            <button class="button" onclick="window.location.href='inventario_bajo.html'">Consultar inventario bajo</button>
-            <button class="button" onclick="window.location.href='barco_cercano.html'">Barco más cercano a puerto</button>
+            <button class="button" onclick="window.location.href='inventario_bajo.php'">Consultar inventario bajo</button>
+            <button class="button" onclick="window.location.href='barco_cercano.php'">Barco más cercano a puerto</button>
         </div>
     </main>
 

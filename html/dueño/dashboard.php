@@ -13,12 +13,12 @@
 
     <main class="container">
         <div class="button-group">
-            <button class="button" onclick="window.location.href='registro/barco.html'">Registrar Barco</button>
-            <button class="button" onclick="window.location.href='registro/historial_viajes.html'">Ver Historial de Viajes</button>
-            <button class="button" onclick="window.location.href='registro/viaje.html'">Registrar Viaje</button>
-            <button class="button" onclick="window.location.href='registro/localizacion_gps.html'">Localización GPS</button>
-            <button class="button" onclick="window.location.href='barcos.html'">Ver Barcos Registrados</button>
-            <button class="button" onclick="window.location.href='modificar_barco.html'">Modificar Barco</button>
+            <button class="button" onclick="window.location.href='registro/barco.php'">Registrar Barco</button>
+            <button class="button" onclick="window.location.href='registro/historial_viajes.php'">Ver Historial de Viajes</button>
+            <button class="button" onclick="window.location.href='registro/viaje.php'">Registrar Viaje</button>
+            <button class="button" onclick="window.location.href='registro/localizacion_gps.php'">Localización GPS</button>
+            <button class="button" onclick="window.location.href='barcos.php'">Ver Barcos Registrados</button>
+            <button class="button" onclick="window.location.href='modificar_barco.php'">Modificar Barco</button>
             <button class="button" onclick="confirmarEliminacion()">Eliminar Barco</button>
         </div>
     </main>

@@ -53,8 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 if ($result_dueno->num_rows === 1) {
                     $user_dueno = $result_dueno->fetch_assoc();
-                    $_SESSION['dueno_id'] = $user_maestro['dueno_id'];
-                    $_SESSION['dueno_nombre'] = $user_maestro['nombre_dueno'];
+                    $_SESSION['dueno_id'] = $user_dueno['dueno_id'];
+                    $_SESSION['dueno_nombre'] = $user_dueno['nombre_dueno'];
                 } else {
                     die("Error al obtener ID del dueño.");
                 }

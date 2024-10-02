@@ -21,7 +21,7 @@ if (isset($_GET['rol'])) {
             break;
         default:
             echo json_encode(['error' => 'Rol no válido']);
-            exit; // Detenemos el script si el rol no es válido
+            exit;
     }
 
     $result = $conn->query($query);
