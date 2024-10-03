@@ -42,7 +42,6 @@ else if (isset($_GET['username']) && isset($_GET['rol'])) {
 
     switch ($rol) {
         case 'dueno':
-            
             $query = "SELECT nombre_dueno AS nombre, apaterno_dueno AS apellidoPaterno, amaterno_dueno AS apellidoMaterno FROM dueno WHERE username_dueno = ?";
             break;
         case 'empleado':
@@ -69,6 +68,47 @@ else if (isset($_GET['username']) && isset($_GET['rol'])) {
         echo json_encode($user);
     } else {
         echo json_encode(['error' => 'Usuario no encontrado']);
+    }
+} 
+else if (isset($_POST['modificarUsuario']) && isset($_POST['listaUsuarios']) && isset($_POST['rolOculto'])){
+    $username = $_POST['listaUsuarios'];
+    $rol = $_POST['rolOculto'];
+    $nombre = $_POST['nombre'];
+    $apaterno = $_POST['apaterno'];
+    $amaterno = $_POST['amaterno'];
+
+    if (!empty($nombre) && !empty($apaterno) && !empty($amaterno)) {
+        switch ($rol){
+            case 'dueno':
+                $query = "UPDATE dueno SET nombre_dueno = ?, apaterno_dueno = ?, amaterno_dueno = ? WHERE username_dueno = ?";
+                break;
+            case 'empleado':
+                $query = "UPDATE empleado SET nombre_empleado = ?, apaterno_empleado = ?, amaterno_empleado = ? WHERE username_empleado = ?";
+                break;
+            case 'gerenteOperaciones':
+                $query = "UPDATE gerente_op SET nombre_gerente = ?, apaterno_gerente = ?, amaterno_gerente = ? WHERE username_gerente = ?";
+                break;
+            case 'gerenteFinanciero':
+                $query = "UPDATE gerente_financiero SET nombre_gerentef = ?, apaterno_gerentef = ?, amaterno_gerentef = ? WHERE username_gerentef = ?";
+                break;
+            default:
+                echo json_encode(['error' => 'Rol no válido']);
+                exit;
+        }
+
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ssss", $nombre, $apaterno, $amaterno, $username);
+
+        if ($stmt->execute()) {
+            echo "<script>
+                        alert('Se ha modificado al usuario con éxito.');
+                        window.location.href = '/nautiteq/html/admin/modificar_usuario.php';</script>;
+                </script>";
+        } else {
+            echo "Error al modificar el usuario: " . $conn->error;
+        }
+    } else {
+        echo '<script>alert("Por favor, complete todos los campos.");</script>';
     }
 }
 

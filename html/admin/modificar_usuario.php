@@ -16,7 +16,7 @@
         <h1>Modificar Usuario</h1>
     </div>
     <div class="container">
-        <form id="modificarUsuario" onsubmit="guardarCambios(event)">
+        <form id="modificarUsuario" name="modificarUsuario" method="post">
             <div class="input-group">
                 <label for="usuarioSeleccionado">Seleccionar Usuario</label>
                 <select id="usuarioSeleccionado" name="usuarioSeleccionado" required onchange="cargarUsuariosPorRol(this.value)">
@@ -33,6 +33,7 @@
                 <option>Seleccione un usuario...</option>
             </select>
         </div>
+        <input type="hidden" id="rolOculto" name="rolOculto" required>
         <div class="input-group">
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" required>
