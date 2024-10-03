@@ -27,29 +27,27 @@
                     <option value="gerenteFinanciero">Gerente Financiero</option>
                 </select>
             </div>
-            <div class="input-group">
+        <div class="input-group">
+            <label for="listaUsuarios">Lista de Usuarios</label>
             <select id="listaUsuarios" name="listaUsuarios" onchange="autocompletarUsuario(this.value, document.getElementById('usuarioSeleccionado').value)">
                 <option>Seleccione un usuario...</option>
             </select>
-            </div>
-            <div class="input-group">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password">
-            </div>
-            <div class="input-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div class="input-group">
-                <label for="apellidoPaterno">Apellido Paterno</label>
-                <input type="text" id="apellidoPaterno" name="apaterno" required>
-            </div>
-            <div class="input-group">
-                <label for="apellidoMaterno">Apellido Materno</label>
-                <input type="text" id="apellidoMaterno" name="amaterno" required>
-            </div>
-            <button type="submit" class="button" name="modificarUsuario">Guardar Cambios</button>
-        </form>
+        </div>
+        <div class="input-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="input-group">
+            <label for="apellidoPaterno">Apellido Paterno</label>
+            <input type="text" id="apellidoPaterno" name="apaterno" required>
+        </div>
+        <div class="input-group">
+            <label for="apellidoMaterno">Apellido Materno</label>
+            <input type="text" id="apellidoMaterno" name="amaterno" required>
+        </div>
+        <button type="submit" class="button" name="modificarUsuario">Guardar Cambios</button>
+    </form>
+
     </div>
 </body>
 </html>

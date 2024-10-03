@@ -23,10 +23,6 @@ if ($result->num_rows > 0) {
 
 $stmt->close();
 
-function cleanInput($data, $conn) {
-    return mysqli_real_escape_string($conn, trim($data));
-}
-
 if (isset($_POST['registrarViaje'])) {
     $puerto_origen = $_POST['puertoOrigen'];
     $puerto_destino = $_POST['puertoDestino'];
