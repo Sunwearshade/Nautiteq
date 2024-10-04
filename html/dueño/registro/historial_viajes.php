@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../css/main.css">
     <title>Historial de Viajes</title>
+    <script src="../../../scripts/scriptsDueno/historialViaje.js" defer></script>
     <?php
         require_once $_SERVER['DOCUMENT_ROOT'] . '/nautiteq/php/php_dueno/consulta_viajes.php';
     ?>
@@ -15,7 +16,7 @@
     </div>
     <div class="container">
         <label for="barcoSeleccionado">Seleccionar Barco:</label>
-        <select id="barcoSeleccionado" name="barcoSeleccionado" onchange="mostrarHistorial()">
+        <select id="barcoSeleccionado" name="barcoSeleccionado" onchange="mostrarHistorial(this.value)">
             <option value="">Seleccione...</option>
             <?php
                 if (!empty($barcos)) {
@@ -31,8 +32,5 @@
         <div id="historial" style="margin-top: 20px;">
         </div>
     </div>
-
-    <script src="../../../scripts/scriptsDueno/historialviajes.js">
-    </script>
 </body>
 </html>

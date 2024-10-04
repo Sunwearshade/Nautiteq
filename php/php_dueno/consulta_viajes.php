@@ -21,30 +21,25 @@ if ($result->num_rows > 0) {
     }
 }
 
-$stmt->close();
+if (isset($_GET['barco'])) {
+    $barcoId = $_GET['barco'];
 
-if (isset($_POST['registrarViaje'])) {
-    $puerto_origen = $_POST['puertoOrigen'];
-    $puerto_destino = $_POST['puertoDestino'];
-    $fecha_inicio = $_POST['fechaInicio'];
-    $fecha_fin = $_POST['fechaFin'];
-    $barco_id = $_POST['barcoSeleccionado'];
+    $query2 = "SELECT fecha_inicio, fecha_fin, puerto_origen, puerto_destino FROM viaje WHERE barco_id = ?";
+    $stmt2 = $conn->prepare($query2);
+    $stmt2->bind_param("i", $barcoId);
+    $stmt2->execute();
+    $result2 = $stmt2->get_result();
 
-    if (!empty($puerto_origen) && !empty($puerto_destino) && !empty($fecha_inicio) && !empty($fecha_fin) && !empty($barco_id)) {
-        $query = "INSERT INTO viaje(puerto_origen, puerto_destino, fecha_inicio, fecha_fin, barco_id) VALUES (?, ?, ?, ?, ?)";
-
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("ssssi", $puerto_origen, $puerto_destino, $fecha_inicio, $fecha_fin, $barco_id);
-
-        if ($stmt->execute()) {
-            echo "<script>
-                        alert('Se ha agregado el viaje con éxito.');
-                        window.location.href = '/nautiteq/html/dueño/registro/viaje.php';</script>;
-                </script>";
-        } else {
-            echo "Error al insertar el viaje: " . $conn->error;
+    $viajes = [];
+    if ($result2->num_rows > 0) {
+        while ($row = $result2->fetch_assoc()) {
+            $viajes[] = $row;
         }
-    } else {
-        echo '<script>alert("Por favor, complete todos los campos.");</script>';
     }
+
+    $stmt2->close();
+    echo json_encode([
+        'denominacion' => $_GET['denominacion'], // Se puede enviar desde el front el nombre del barco
+        'viajes' => $viajes
+    ]);
 }
