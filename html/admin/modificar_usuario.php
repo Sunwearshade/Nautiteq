@@ -28,10 +28,10 @@
                 </select>
             </div>
         <div class="input-group">
-            <label for="listaUsuarios">Lista de Usuarios</label>
-            <select id="listaUsuarios" name="listaUsuarios" onchange="autocompletarUsuario(this.value, document.getElementById('usuarioSeleccionado').value)">
-                <option>Seleccione un usuario...</option>
-            </select>
+        <label for="listaUsuarios">Lista de Usuarios</label>
+        <select id="listaUsuarios" name="listaUsuarios" onchange="autocompletarUsuario(this.value, document.getElementById('usuarioSeleccionado').value)">
+            <option>Seleccione un usuario...</option>
+        </select>
         </div>
         <input type="hidden" id="rolOculto" name="rolOculto" required>
         <div class="input-group">

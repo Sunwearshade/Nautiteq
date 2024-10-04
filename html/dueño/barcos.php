@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/main.css">
     <title>Barcos Registrados</title>
+    <?php 
+        require_once '../../php/php_dueno/consulta_barco.php';
+    ?>
 </head>
 <body>
     <div class="header">
@@ -19,14 +22,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Barco 1</td>
-                    <td>Argentina</td>
-                </tr>
-                <tr>
-                    <td>Barco 2</td>
-                    <td>Brasil</td>
-                </tr>
+                <?php
+                    if (!empty($barcos)) {
+                        foreach ($barcos as $barco) {
+                            echo "<tr>
+                                    <td>" . $barco['denominacion'] . "</td>
+                                    <td>" . $barco['pais_registro'] . "</td>
+                                </tr>";
+                        }
+                    } else {
+                        echo "<tr>
+                                    <td> N.A. </td>
+                                    <td> N.A. </td>
+                                </tr>";
+                    }
+                ?>
             </tbody>
         </table>
     </div>

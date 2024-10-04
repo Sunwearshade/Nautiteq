@@ -135,3 +135,8 @@ p {
 button:disabled {
     cursor: not-allowed; /* Cambiar cursor al pasar sobre el botón */
 }
+
+#mimapa {
+    height: 400px;
+    width: 70%;
+}
