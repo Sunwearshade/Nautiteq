@@ -1,9 +1,17 @@
-function confirmarEliminacion() {
-    document.getElementById("modalConfirmacion").style.display = "block";
+function openModal() {
+    document.getElementById("modal").style.display = "block";
 }
 
-function cerrarModal() {
-    document.getElementById("modalConfirmacion").style.display = "none";
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+function openModal() {
+    document.getElementById("modal").style.display = "flex"; 
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
 }
 
 function eliminarBarco() {

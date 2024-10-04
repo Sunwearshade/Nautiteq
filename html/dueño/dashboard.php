@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/main.css">
     <title>Panel del Dueño</title>
+    <script src="../../scripts/scriptsDueno/dashboard.js" defer></script>
 </head>
 <body>
     <header class="header">
         <h1>Panel del Dueño</h1>
     </header>
+    
+    <button id="cerrar-sesion" onclick="window.location.href='../../index.php'">Cerrar Sesión</button>
 
     <main class="container">
         <div class="button-group">
@@ -19,20 +22,24 @@
             <button class="button" onclick="window.location.href='registro/localizacion_gps.php'">Localización GPS</button>
             <button class="button" onclick="window.location.href='barcos.php'">Ver Barcos Registrados</button>
             <button class="button" onclick="window.location.href='modificar_barco.php'">Modificar Barco</button>
-            <button class="button" onclick="confirmarEliminacion()">Eliminar Barco</button>
+            <button class="button" onclick="openModal()">Eliminar Barco</button>
         </div>
     </main>
-
-    <button id="cerrar-sesion" onclick="window.location.href='../../index.php'">Cerrar Sesión</button>
-
-    <div id="modalConfirmacion" class="modal">
+    <div id="modal" class="modal" style="display: none;">
         <div class="modal-content">
-            <span class="close" onclick="cerrarModal()">&times;</span>
-            <p>¿Está seguro de que desea eliminar el barco seleccionado?</p>
-            <button class="button" onclick="eliminarBarco()">Confirmar Eliminación</button>
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Confirmar Eliminación</h2>
+            <label for="userId">Buscar usuario por Username:</label>
+            <input type="text" id="username" name="searchUser" placeholder="Ingrese el nombre de usuario">
+            <button class="button" id="searchButton" onclick="buscarUsuario()">Buscar</button>
+            <br><p id="userFound"></p>
+            <p>¿Estás seguro de que deseas eliminar este usuario?</p>
+            <div class="modal-button-group">
+                <button class="button" id="confirmDeleteBtn" onclick="handleConfirmDelete()" disabled>Confirmar eliminación</button>
+                <button class="button" onclick="closeModal()">Cancelar</button>
+            </div>
         </div>
     </div>
 
-    <script src="../../scripts/scriptsDueno/dashboard.js"></script>
 </body>
 </html>
