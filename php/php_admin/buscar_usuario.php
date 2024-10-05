@@ -27,4 +27,3 @@ if (isset($_GET['username'])) {
 }
 
 $conn->close();
-?>

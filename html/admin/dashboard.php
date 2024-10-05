@@ -15,7 +15,7 @@
 
         function handleConfirmDelete() {
             const userFoundText = document.getElementById('userFound').innerText;
-            const username = userFoundText.split(": ")[1]; // Extraer el nombre de usuario
+            const username = userFoundText.split(": ")[1]; 
             confirmDelete(username);
         }
     </script>
