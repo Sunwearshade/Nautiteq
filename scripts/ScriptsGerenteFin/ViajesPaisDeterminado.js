@@ -1,15 +1,37 @@
-function consultarViajesPaisDeterminado(event) {
-    event.preventDefault();
-    const pais = document.getElementById('pais').value;
+function mostrarViajesPaisD(event) {
+    event.preventDefault(); // Evita que el formulario se envíe y recargue la página
 
-    const viajes = [
-        { inicio: 'Argentina', fin: 'Brasil' },
-        { inicio: 'Brasil', fin: 'Argentina' },
-        { inicio: 'Chile', fin: 'Perú' },
-    ];
+    const paisSeleccionado = document.getElementById('pais').value; // Obtener el valor ingresado en el input
 
-    const viajesEnPais = viajes.filter(viaje => viaje.inicio === pais || viaje.fin === pais);
-    const cantidad = viajesEnPais.length;
-
-    document.getElementById('resultado').innerHTML = `<p>Se encontraron ${cantidad} viaje(s) que comenzaron o terminaron en ${pais}.</p>`;
+    if (paisSeleccionado !== "") {
+        fetch(`/nautiteq/php/php_gf/consulta_pais_determinado.php?pais=${encodeURIComponent(paisSeleccionado)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    let historialHTML = '';
+                    if (data.viajes.length > 0) {
+                        historialHTML += `<br><p>Se encontraron los siguientes viajes que iniciaron o terminaron en ${paisSeleccionado}:</p>`
+                        data.viajes.forEach((viaje, index) => {
+                            historialHTML += `
+                                <div>
+                                    <p style="color: black;"><strong>Viaje ${index + 1}</strong></p>
+                                    <p>Fecha de Inicio: ${viaje.fecha_inicio}</p>
+                                    <p>Fecha de Finalización: ${viaje.fecha_fin}</p>
+                                    <p>Puerto de Origen: ${viaje.puerto_origen}</p>
+                                    <p>País de Origen: ${viaje.pais_origen}</p>
+                                    <p>Puerto de Destino: ${viaje.puerto_destino}</p>
+                                    <p>País de Destino: ${viaje.pais_destino}</p>
+                                </div>
+                            `;
+                        });
+                    } else {
+                        historialHTML += `<p>No hay viajes registrados que inicien o terminen en este país.</p>`;
+                    }
+                    document.getElementById("resultado").innerHTML = historialHTML;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
 }

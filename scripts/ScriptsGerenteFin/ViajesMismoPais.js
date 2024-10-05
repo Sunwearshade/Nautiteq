@@ -12,7 +12,7 @@ function mostrarViajesMPais(event) {
                 } else {
                     let historialHTML = '';
                     if (data.viajes.length > 0) {
-                        historialHTML += `<br><p>Se encontraron los siguientes viajes para el país ${paisSeleccionado}:</p>`
+                        historialHTML += `<br><p>Se encontraron los siguientes viajes que iniciaron y terminaron en ${paisSeleccionado}:</p>`
                         data.viajes.forEach((viaje, index) => {
                             historialHTML += `
                                 <div>
