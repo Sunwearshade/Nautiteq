@@ -29,4 +29,7 @@ create table registro_productos(producto_id int, bodega_id int, fecha_ingreso da
 alter table registro_productos add constraint fk_rp_p foreign key (producto_id) references productos(producto_id);
 alter table registro_productos add constraint fk_rp_b foreign key (bodega_id) references bodegas(bodega_id);
 
-create table supervisor(supervisor_id int primary key not null AUTO_INCREMENT, nombre_supervisor varchar(50) not null, apaterno_supervisor varchar(50) not null, amaterno_supervisor varchar(100) not null, username_supervisor varchar(100) not null, edad int not null, sexo varchar(20) not null, legajo varchar(50) not null);
+create table empleado(empleado_id int primary key not null AUTO_INCREMENT, nombre_empleado varchar(50) not null, apaterno_empleado varchar(50) not null, amaterno_empleado varchar(100) not null, username_empleado varchar(100) not null, edad int not null, sexo varchar(20) not null, legajo varchar(50) not null);
+
+ALTER TABLE viaje ADD COLUMN pais_origen VARCHAR(100) NOT NULL;
+ALTER TABLE viaje ADD COLUMN pais_destino VARCHAR(100) NOT NULL;

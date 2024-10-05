@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
 if (isset($_GET['barco'])) {
     $barcoId = $_GET['barco'];
 
-    $query2 = "SELECT fecha_inicio, fecha_fin, puerto_origen, puerto_destino FROM viaje WHERE barco_id = ?";
+    $query2 = "SELECT fecha_inicio, fecha_fin, puerto_origen, pais_origen, puerto_destino, pais_destino FROM viaje WHERE barco_id = ?";
     $stmt2 = $conn->prepare($query2);
     $stmt2->bind_param("i", $barcoId);
     $stmt2->execute();

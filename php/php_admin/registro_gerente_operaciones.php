@@ -14,7 +14,7 @@ if (isset($_POST['registroGerente'])) {
 
     if (!empty($username) && !empty($password) && !empty($nombre) && !empty($apaterno) && !empty($amaterno)) {
         $query = "INSERT INTO gerente_op(nombre_gerente, apaterno_gerente, amaterno_gerente, username_gerente) VALUES (?, ?, ?, ?)";
-        $query2 = "INSERT INTO users (username, password, role) VALUES (?, ?, 'gerente_financiero')";
+        $query2 = "INSERT INTO users (username, password, role) VALUES (?, ?, 'gerente_op')";
 
         $stmt = $conn->prepare($query);
         $stmt->bind_param("ssss", $nombre, $apaterno, $amaterno, $username);

@@ -25,16 +25,18 @@ $stmt->close();
 
 if (isset($_POST['registrarViaje'])) {
     $puerto_origen = $_POST['puertoOrigen'];
+    $pais_origen = $_POST['paisOrigen'];
     $puerto_destino = $_POST['puertoDestino'];
+    $pais_destino = $_POST['paisDestino'];
     $fecha_inicio = $_POST['fechaInicio'];
     $fecha_fin = $_POST['fechaFin'];
     $barco_id = $_POST['barcoSeleccionado'];
 
-    if (!empty($puerto_origen) && !empty($puerto_destino) && !empty($fecha_inicio) && !empty($fecha_fin) && !empty($barco_id)) {
-        $query = "INSERT INTO viaje(puerto_origen, puerto_destino, fecha_inicio, fecha_fin, barco_id) VALUES (?, ?, ?, ?, ?)";
+    if (!empty($puerto_origen) && !empty($puerto_destino) && !empty($fecha_inicio) && !empty($fecha_fin) && !empty($barco_id) && !empty($pais_destino) && !empty($pais_origen)) {
+        $query = "INSERT INTO viaje(puerto_origen, pais_origen, puerto_destino, pais_destino, fecha_inicio, fecha_fin, barco_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ssssi", $puerto_origen, $puerto_destino, $fecha_inicio, $fecha_fin, $barco_id);
+        $stmt->bind_param("ssssssi", $puerto_origen, $pais_origen, $puerto_destino, $pais_destino, $fecha_inicio, $fecha_fin, $barco_id);
 
         if ($stmt->execute()) {
             echo "<script>

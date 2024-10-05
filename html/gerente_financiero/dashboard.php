@@ -13,8 +13,8 @@
 
     <main class="container">
         <div class="button-group">
-            <button class="button" onclick="window.location.href='viajes_mismo_pais.html'">Consultar viajes en el mismo país</button>
-            <button class="button" onclick="window.location.href='viajes_pais_determinado.html'">Consultar viajes en un país determinado</button>
+            <button class="button" onclick="window.location.href='viajes_mismo_pais.php'">Consultar viajes en el mismo país</button>
+            <button class="button" onclick="window.location.href='viajes_pais_determinado.php'">Consultar viajes en un país determinado</button>
         </div>
     </main>
 

@@ -35,8 +35,16 @@
                 <input type="text" id="puertoOrigen" name="puertoOrigen" required>
             </div>
             <div class="input-group">
+                <label for="paisOrigen">País de Origen</label>
+                <input type="text" id="paisOrigen" name="paisOrigen" required>
+            </div>
+            <div class="input-group">
                 <label for="puertoDestino">Puerto de Destino</label>
                 <input type="text" id="puertoDestino" name="puertoDestino" required>
+            </div>
+            <div class="input-group">
+                <label for="paisDestino">País de Destino</label>
+                <input type="text" id="paisDestino" name="paisDestino" required>
             </div>
             <div class="input-group">
                 <label for="fechaInicio">Fecha de Inicio</label>

@@ -18,7 +18,9 @@ function mostrarHistorial(barcoSeleccionado) {
                                     <p>Fecha de Inicio: ${viaje.fecha_inicio}</p>
                                     <p>Fecha de Finalización: ${viaje.fecha_fin}</p>
                                     <p>Puerto de Origen: ${viaje.puerto_origen}</p>
+                                    <p>País de Origen: ${viaje.pais_origen}</p>
                                     <p>Puerto de Destino: ${viaje.puerto_destino}</p>
+                                    <p>Puerto de Destino: ${viaje.pais_destino}</p>
                                 </div>
                             `;
                         });
