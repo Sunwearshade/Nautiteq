@@ -49,6 +49,10 @@
                 <label for="cantidad">Cantidad</label>
                 <input type="number" id="cantidad" name="cantidad" required>
             </div>
+            <div class="input-group">
+                <label for="pais">País</label>
+                <input type="text" id="pais" name="pais" required>
+            </div>
             <div>
                 <label for="fechaEgreso">Fecha de Egreso</label><br>
                 <input type="date" id="fechaEgreso" name="fechaEgreso" required>

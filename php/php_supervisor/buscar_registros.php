@@ -21,6 +21,7 @@ if (isset($_GET['registro'])) {
             'nombre_producto' => $registro['nombre_producto'],
             'nombre_bodega' => $registro['nombre_bodega'],
             'cantidad' => $registro['cantidad'],
+            'pais' => $registro['pais'],
             'fecha_registro' => $registro['fecha_registro']
         ]);
     } else {

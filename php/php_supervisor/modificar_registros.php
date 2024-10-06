@@ -69,22 +69,23 @@ if (isset($_POST['modificarRegistro'])) {
     $producto = $_POST['productoSeleccionado'];
     $bodega = $_POST['bodegaSeleccionada'];
     $cantidad = $_POST['cantidad'];
+    $pais = $_POST['pais'];
     $fecha = $_POST['fechaIngresoEgreso'];
     $tipo = $_POST['tipo'];
     $fecha_registro = date('Y-m-d H:i:s');
 
-    if (!empty($producto) && !empty($bodega) && !empty($cantidad) && !empty($fecha)) {
+    if (!empty($producto) && !empty($bodega) && !empty($cantidad) && !empty($fecha) && !empty($pais)) {
         if ($tipo === 'ingreso') {
-            $query = "UPDATE registro_productos SET producto_id = ?, bodega_id = ?, cantidad = ?, fecha_ingreso = ?, fecha_registro = ? 
+            $query = "UPDATE registro_productos SET producto_id = ?, bodega_id = ?, cantidad = ?, pais = ?, fecha_ingreso = ?, fecha_registro = ? 
                       WHERE registro_id = ?";
         } elseif ($tipo === 'egreso') {
-            $query = "UPDATE registro_productos SET producto_id = ?, bodega_id = ?, cantidad = ?, fecha_egreso = ?, fecha_registro = ? 
+            $query = "UPDATE registro_productos SET producto_id = ?, bodega_id = ?, cantidad = ?, pais = ?, fecha_egreso = ?, fecha_registro = ? 
                       WHERE registro_id = ?";
         }
 
         if (isset($query)) {
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("iiissi", $producto, $bodega, $cantidad, $fecha, $fecha_registro, $registro_id);
+            $stmt->bind_param("iiisssi", $producto, $bodega, $cantidad, $pais, $fecha, $fecha_registro, $registro_id);
             if ($stmt->execute()) {
                 echo "<script>
                         alert('Se ha modificado el registro con éxito.');

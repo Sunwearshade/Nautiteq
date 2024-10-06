@@ -33,14 +33,15 @@ if (isset($_POST['registrarIngreso'])) {
     $producto = $_POST['productoSeleccionado'];
     $bodega = $_POST['bodegaSeleccionada'];
     $cantidad = $_POST['cantidad'];
+    $pais = $_POST['pais'];
     $fecha_ingreso = $_POST['fechaIngreso'];
     $fecha_registro = date('Y-m-d H:i:s');
 
     if (!empty($producto) && !empty($bodega) && !empty($cantidad) && !empty($fecha_ingreso)) {
-        $query = "INSERT INTO registro_productos(producto_id, bodega_id, cantidad, fecha_ingreso, fecha_registro, tipo) VALUES (?, ?, ?, ?, ?, 'ingreso')";
+        $query = "INSERT INTO registro_productos(producto_id, bodega_id, cantidad, pais, fecha_ingreso, fecha_registro, tipo) VALUES (?, ?, ?, ?, ?, ?, 'ingreso')";
 
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("iiiss", $producto, $bodega, $cantidad, $fecha_ingreso, $fecha_registro);
+        $stmt->bind_param("iiisss", $producto, $bodega, $cantidad, $pais, $fecha_ingreso, $fecha_registro);
         if ($stmt->execute()) {
             echo "<script>
                         alert('Se ha agregado el ingreso de producto con éxito.');

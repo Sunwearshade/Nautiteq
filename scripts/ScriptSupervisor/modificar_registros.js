@@ -9,6 +9,7 @@ function autocompletarRegistro(registro) {
                     document.getElementById('productoSeleccionado').value = data.producto_id || ''; 
                     document.getElementById('bodegaSeleccionada').value = data.bodega_id || '';
                     document.getElementById('cantidad').value = data.cantidad;
+                    document.getElementById('pais').value = data.pais;
                     document.getElementById('tipo').value = data.tipo;
 
                     let fechaLabel = document.querySelector('label[for="fechaIngresoEgreso"]');
