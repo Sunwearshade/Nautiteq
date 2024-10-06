@@ -15,6 +15,7 @@
     <main class="container">
         <div class="button-group">
             <button class="button" onclick="window.location.href='registro/barco.php'">Registrar Barco</button>
+            <button class="button" onclick="window.location.href='registro/bodega.php'">Registrar Bodega</button>
             <button class="button" onclick="window.location.href='registro/historial_viajes.php'">Ver Historial de Viajes</button>
             <button class="button" onclick="window.location.href='registro/viaje.php'">Registrar Viaje</button>
             <button class="button" onclick="window.location.href='registro/localizacion_gps.php'">Localización GPS</button>

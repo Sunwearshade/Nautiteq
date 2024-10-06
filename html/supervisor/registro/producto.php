@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../../../css/main.css">
     <title>Registrar Producto</title>
     <?php
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/nautiteq/php/php_supervisor/registro_productos.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/nautiteq/php/php_supervisor/registrar_productos.php';
     ?>
 </head>
 <body>
