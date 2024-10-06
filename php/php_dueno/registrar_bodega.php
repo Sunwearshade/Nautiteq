@@ -25,13 +25,13 @@ $stmt->close();
 
 if (isset($_POST['registrarBodega'])) {
     $barco_id = $_POST['barcoSeleccionado'];
-    $numero_bodega = $_POST['numeroBodega'];
+    $nombre_bodega = $_POST['nombreBodega'];
 
-    if (!empty($barco_id) && !empty($numero_bodega)) {
-        $query = "INSERT INTO bodegas(bodega_id, barco_id) VALUES (?, ?)";
+    if (!empty($barco_id) && !empty($nombre_bodega)) {
+        $query = "INSERT INTO bodegas(nombre_bodega, barco_id) VALUES (?, ?)";
 
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ii", $numero_bodega, $barco_id);
+        $stmt->bind_param("si", $nombre_bodega, $barco_id);
 
         if ($stmt->execute()) {
             echo "<script>

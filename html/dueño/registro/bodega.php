@@ -8,7 +8,7 @@
     <?php
         require_once $_SERVER['DOCUMENT_ROOT'] . '/nautiteq/php/php_dueno/registrar_bodega.php';
     ?>
-</head>
+</head> 
 <body>
     <div class="header">
         <h1>Registrar Bodega</h1>
@@ -31,8 +31,8 @@
                 </select>
             </div>
             <div class="input-group">
-                <label for="numeroBodega">Número de Bodega</label>
-                <input type="number" id="numeroBodega" name="numeroBodega" required>
+                <label for="nombreBodega">Nombre de la Bodega</label>
+                <input type="text" id="nombreBodega" name="nombreBodega" required>
             </div>
             <button type="submit" class="button" name="registrarBodega">Guardar</button>
         </form>
