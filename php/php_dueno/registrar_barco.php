@@ -1,10 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/nautiteq/php/conn_db.php';
 
-function cleanInput($data, $conn) {
-    return mysqli_real_escape_string($conn, trim($data));
-}
-
 if (isset($_POST['registrarBarco'])) {
     $denominacion = $_POST['denominacion'];
     $pais_registro = $_POST['paisRegistro'];
