@@ -16,7 +16,7 @@
             <button class="button" onclick="window.location.href='registro/producto.php'">Registrar Productos</button>
             <button class="button" onclick="window.location.href='registro/ingreso.php'">Registrar Ingreso de Productos</button>
             <button class="button" onclick="window.location.href='registro/egreso.php'">Registrar Egreso de Productos</button>
-            <button class="button" onclick="window.location.href='modificar_producto.php'">Modificar Registros</button>
+            <button class="button" onclick="window.location.href='modificar_registro.php'">Modificar Registros</button>
             <button class="button" onclick="confirmarEliminacion()">Eliminar Registros</button>
         </div>
     </main>
