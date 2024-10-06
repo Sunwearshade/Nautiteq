@@ -21,7 +21,7 @@
             <button class="button" onclick="window.location.href='registro/ingreso.php'">Registrar Ingreso de Productos</button>
             <button class="button" onclick="window.location.href='registro/egreso.php'">Registrar Egreso de Productos</button>
             <button class="button" onclick="window.location.href='modificar_registro.php'">Modificar Registros</button>
-            <button class="button" onclick="confirmarEliminacion()">Eliminar Registros</button>
+            <button class="button" onclick="openModal()">Eliminar Registros</button>
         </div>
     </main>
 
@@ -32,18 +32,18 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Confirmar Eliminación de Registro</h2>
             <label for="fechaRegistro">Seleccionar Fecha de Registro:</label>
-                    <select id="fechaRegistro" name="fechaRegistro" onchange="autocompletarRegistro(this.value)">
-                        <option value="">Seleccione...</option>
-                        <?php
-                        if (!empty($registros)) {
-                            foreach ($registros as $registro) {
-                                echo "<option value='" . $registro['registro_id'] . "'>" . $registro['fecha_registro'] . "</option>";
-                            }
-                        } else {
-                            echo "<option value=''>No hay registros</option>";
+                <select id="fechaRegistro" name="fechaRegistro" onchange="autocompletarRegistro(this.value)">
+                    <option value="">Seleccione...</option>
+                    <?php
+                    if (!empty($registros)) {
+                        foreach ($registros as $registro) {
+                            echo "<option value='" . $registro['registro_id'] . "'>" . $registro['fecha_registro'] . "</option>";
                         }
-                        ?>
-                    </select>
+                    } else {
+                        echo "<option value=''>No hay registros</option>";
+                    }
+                    ?>
+                </select>
             <br><button class="button" id="searchButton" onclick="buscarRegistro()">Buscar</button>
             <br><p id="dataFound"></p>
             <p>¿Estás seguro de que deseas eliminar este registro?</p>

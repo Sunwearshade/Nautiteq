@@ -4,7 +4,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/nautiteq/php/conn_db.php';
 if (isset($_GET['registro'])) {
     $registro_id = $_GET['registro'];
 
-    // Consulta para obtener el registro con información adicional de producto y bodega
     $query = "SELECT rp.*, p.nombre AS nombre_producto, b.nombre_bodega 
               FROM registro_productos rp
               JOIN productos p ON rp.producto_id = p.producto_id

@@ -1,12 +1,25 @@
-function confirmarEliminacion() {
+function openModal() {
     document.getElementById("modal").style.display = "block";
 }
 
-function cerrarModal() {
+function closeModal() {
     document.getElementById("modal").style.display = "none";
 }
 
-let registroId; // Guardar el ID del registro
+function openModal() {
+    document.getElementById("modal").style.display = "flex"; 
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+
+function confirmarEliminacion() {
+    cerrarModal();
+}
+
+let registroId; 
 
 function buscarRegistro() {
     const registro = document.getElementById('fechaRegistro').value.trim();
@@ -25,7 +38,6 @@ function buscarRegistro() {
                 dataFoundParagraph.innerHTML = data.error;
                 document.getElementById('confirmDeleteBtn').disabled = true;
             } else {
-                // Mostrar la información del registro
                 dataFoundParagraph.innerHTML = `Registro encontrado:<br> 
                                                 Producto: ${data.nombre_producto}<br> 
                                                 Bodega: ${data.nombre_bodega}<br> 

@@ -38,8 +38,7 @@ if (isset($_GET['registro'])) {
 
 if (isset($_GET['confirmar_eliminacion']) && isset($_GET['registro_id'])) {
     $registro_id = $_GET['registro_id'];
-
-    // Eliminar el registro de la base de datos
+    
     $delete_query = "DELETE FROM registro_productos WHERE registro_id = ?";
     $stmt = $conn->prepare($delete_query);
     $stmt->bind_param("i", $registro_id);
