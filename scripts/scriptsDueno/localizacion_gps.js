@@ -1,49 +1,66 @@
-var mymap = L.map('mimapa').setView([22.7181138, -102.4875826], 18);
+let map;
+let marker;
+let barcoSeleccionado = "";
+let intervalId;
+let latitudActual = 20.872851;
+let longitudActual = -105.445761; 
+const desplazamientoLat = 0.00005; 
+const desplazamientoLon = 0.00005; 
 
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('/nautiteq/php/php_dueno/barcos_disponibles.php')
+        .then(response => response.json())
+        .then(data => {
+            const barcosSelect = document.getElementById('barcos');
+            data.barcos.forEach(barco => {
+                const option = document.createElement('option');
+                option.value = barco.barco_id;
+                option.textContent = barco.denominacion;
+                barcosSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+
+    map = L.map('mimapa').setView([latitudActual, longitudActual], 18);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 25,
-        attribution: 'Datos del mapa de &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>, ' + '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 'Imágenes © <a href="https://www.mapbox.com/">Mapbox</a>', 
+        maxZoom: 18,
+        attribution: 'Datos del mapa de &copy; OpenStreetMap, CC-BY-SA, Imágenes © Mapbox',
         id: 'mapbox/streets-v11'
-    }).addTo(mymap);
+    }).addTo(map);
+});
 
-    /*var marcador = L.icon({
-        iconUrl:'images/marcador.png',
-        iconSize: [60, 85]
-    });
+function actualizarLocalizacion() {
+    barcoSeleccionado = document.getElementById('barcos').value;
+    if (barcoSeleccionado !== "") {
+        document.getElementById('localizacion-info').style.display = 'block';
 
-    var marker = L.marker([22.7181138, -102.4875826], {icon: marcador}).addTo(mymap);*/
+        if (intervalId) {
+            clearInterval(intervalId);
+        }
 
-    var circle = L.circle([22.715969, -102.485431], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.5,
-            radius: 40
-    }).addTo(mymap);
+        obtenerLocalizacion();
+        intervalId = setInterval(obtenerLocalizacion, 4000);
+    }
+}
 
-    var polygon = L.polygon([
-        [22.717820, -102.487619],
-        [22.716832, -102.488089],
-        [22.718159, -102.485810]
-    ]).addTo(mymap);
+function obtenerLocalizacion() {
+    if (barcoSeleccionado === "") return;
 
-    var options = {
-        EnableHighAccuracy: true,
-        Timeout: 500,
-        MaximumAge: 0
-    };
+    // Simulación de avance en línea recta
+    latitudActual += desplazamientoLat;
+    longitudActual += desplazamientoLon;
+    const fecha_hora = new Date().toLocaleString();
 
-    function success(geolocationPosition){
-        console.log(geolocationPosition);
-        let coords = geolocationPosition.coords;
-        document.getElementById("mymap").innerHTML = "Latitud: " + coords.latitude + "<br> Longitud" + coords.longitude; 
+    document.getElementById('nombre-barco').textContent = `Barco ${barcoSeleccionado}`;
+    document.getElementById('fecha-hora').textContent = fecha_hora;
+    document.getElementById('latitud').textContent = latitudActual.toFixed(5);
+    document.getElementById('longitud').textContent = longitudActual.toFixed(5);
+
+    if (marker) {
+        marker.setLatLng([latitudActual, longitudActual]);
+    } else {
+        marker = L.marker([latitudActual, longitudActual]).addTo(map);
     }
 
-    function error(err){
-        document.getElementById("mymap").innerHTML = "Descripción del error: " + err.message;
-    }
-
-    if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(success, error, options);
-    } else{
-        alert("No puedes obtener la geolocalización");
-    }
+    map.setView([latitudActual, longitudActual], 18);
+}
