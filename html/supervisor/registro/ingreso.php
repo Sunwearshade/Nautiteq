@@ -56,8 +56,5 @@
             <button type="submit" class="button" name="registrarIngreso">Guardar</button>
         </form>
     </div>
-
-    <script src="../../../scripts/scriptsDueno/viaje.js">
-    </script>
 </body>
 </html>

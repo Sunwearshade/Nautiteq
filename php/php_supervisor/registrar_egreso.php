@@ -29,22 +29,22 @@ if ($result->num_rows > 0) {
 
 $stmt->close();
 
-if (isset($_POST['registrarIngreso'])) {
+if (isset($_POST['registrarEgreso'])) {
     $producto = $_POST['productoSeleccionado'];
     $bodega = $_POST['bodegaSeleccionada'];
     $cantidad = $_POST['cantidad'];
-    $fecha_ingreso = $_POST['fechaIngreso'];
+    $fecha_egreso = $_POST['fechaEgreso'];
     $fecha_registro = date('Y-m-d H:i:s');
 
-    if (!empty($producto) && !empty($bodega) && !empty($cantidad) && !empty($fecha_ingreso)) {
-        $query = "INSERT INTO ingreso_productos(producto_id, bodega_id, cantidad, fecha_ingreso, fecha_registro) VALUES (?, ?, ?, ?, ?)";
+    if (!empty($producto) && !empty($bodega) && !empty($cantidad) && !empty($fecha_egreso)) {
+        $query = "INSERT INTO egreso_productos(producto_id, bodega_id, cantidad, fecha_egreso, fecha_registro) VALUES (?, ?, ?, ?, ?)";
 
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("iiiss", $producto, $bodega, $cantidad, $fecha_ingreso, $fecha_registro);
+        $stmt->bind_param("iiiss", $producto, $bodega, $cantidad, $fecha_egreso, $fecha_registro);
         if ($stmt->execute()) {
             echo "<script>
-                        alert('Se ha agregado el ingreso de producto con éxito.');
-                        window.location.href = '/nautiteq/html/supervisor/registro/ingreso.php';</script>;
+                        alert('Se ha agregado el egreso de producto con éxito.');
+                        window.location.href = '/nautiteq/html/supervisor/registro/egreso.php';</script>;
                 </script>";
         } else {
             echo "Error al insertar: " . $conn->error;
