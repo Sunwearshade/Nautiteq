@@ -25,7 +25,7 @@ create table productos(producto_id int primary key not null auto_increment, nomb
 create table bodegas(bodega_id int primary key not null auto_increment, nombre_bodega varchar(100) not null, barco_id int not null);
 alter table bodegas add constraint fk_b_b foreign key (barco_id) references barcos(barco_id);
 
-create table registro_productos(registro_id int primary key not null auto_increment, producto_id int not null, bodega_id int not null, cantidad int not null, fecha_ingreso date, fecha_egreso date, fecha_registro date not null, tipo varchar(20) not null);
+create table registro_productos(registro_id int primary key not null auto_increment, producto_id int not null, bodega_id int not null, cantidad int not null, fecha_ingreso date, fecha_egreso date, fecha_registro date not null, tipo varchar(20) not null, pais varchar(100) not null);
 alter table registro_productos add constraint fk_rp_p foreign key (producto_id) references productos(producto_id);
 alter table registro_productos add constraint fk_rp_b foreign key (bodega_id) references bodegas(bodega_id);
 

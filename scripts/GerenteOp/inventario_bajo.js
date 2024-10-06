@@ -1,26 +1,37 @@
-function consultInventory() {
-    const country = document.getElementById("country").value;
-    const product = document.getElementById("product").value;
-    const minQuantity = document.getElementById("minQuantity").value;
+function consultarInventario() {
+    const pais = document.getElementById('country').value;
+    const productoSeleccionado = document.getElementById('productoSeleccionado').value;
+    const cantidadMinima = document.getElementById('minQuantity').value;
+    const resultDiv = document.getElementById('result');
 
-    // Simulación de consulta (reemplazar con llamada a la API o base de datos)
-    const inventoryData = [
-        { country: 'Argentina', product: 'Producto A', date: '2024-01-01', quantity: 50 },
-        { country: 'Chile', product: 'Producto B', date: '2024-01-10', quantity: 20 },
-    ];
+    resultDiv.innerHTML = "";
 
-    const filtered = inventoryData.filter(item => 
-        item.country === country && item.product === product && item.quantity < minQuantity
-    );
-
-    let resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = ''; 
-
-    if (filtered.length > 0) {
-        filtered.forEach(item => {
-            resultDiv.innerHTML += `<p>Fecha: ${item.date}, Cantidad: ${item.quantity}</p>`;
-        });
-    } else {
-        resultDiv.innerHTML = '<p>No se encontraron registros.</p>';
+    if (!pais || !productoSeleccionado || !cantidadMinima) {
+        resultDiv.innerHTML = "Por favor, complete todos los campos.";
+        return;
     }
+
+    fetch('../../php/php_go/consulta_inventario.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+            pais: pais,
+            productoSeleccionado: productoSeleccionado,
+            cantidadMinima: cantidadMinima
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            resultDiv.innerHTML = data.error;
+        } else {
+            resultDiv.innerHTML = `Fecha: ${data.fecha_ingreso}, Cantidad: ${data.cantidad}`;
+        }
+    })
+    .catch(error => {
+        console.error('Error en la consulta:', error);
+        resultDiv.innerHTML = "Error en la consulta.";
+    });
 }
