@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/main.css">
+    <script src="../../scripts/ScriptSupervisor/dashboard.js" defer></script>
     <title>Panel del Supervisor de Carga</title>
+    <?php
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/nautiteq/php/php_supervisor/borrar_registros.php';
+    ?>
 </head>
 <body>
     <header class="header">
@@ -23,14 +27,31 @@
 
     <button id="cerrar-sesion" onclick="window.location.href='../../index.php'">Cerrar Sesión</button>
 
-    <div id="modalConfirmacion" class="modal">
+    <div id="modal" class="modal" style="display: none;">
         <div class="modal-content">
-            <span class="close" onclick="cerrarModal()">&times;</span>
-            <p>¿Está seguro de que desea eliminar el registro del producto seleccionado?</p>
-            <button class="button" onclick="eliminarProducto()">Confirmar Eliminación</button>
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Confirmar Eliminación de Registro</h2>
+            <label for="fechaRegistro">Seleccionar Fecha de Registro:</label>
+                    <select id="fechaRegistro" name="fechaRegistro" onchange="autocompletarRegistro(this.value)">
+                        <option value="">Seleccione...</option>
+                        <?php
+                        if (!empty($registros)) {
+                            foreach ($registros as $registro) {
+                                echo "<option value='" . $registro['registro_id'] . "'>" . $registro['fecha_registro'] . "</option>";
+                            }
+                        } else {
+                            echo "<option value=''>No hay registros</option>";
+                        }
+                        ?>
+                    </select>
+            <br><button class="button" id="searchButton" onclick="buscarRegistro()">Buscar</button>
+            <br><p id="dataFound"></p>
+            <p>¿Estás seguro de que deseas eliminar este registro?</p>
+            <div class="modal-button-group">
+                <button class="button" id="confirmDeleteBtn" onclick="handleConfirmDelete(document.getElementById('dataFound').value)" disabled>Confirmar eliminación</button>
+                <button class="button" onclick="closeModal()">Cancelar</button>
+            </div>
         </div>
     </div>
-
-    <script src="../../scripts/ScriptSupervisor/dashboard.js"></script>
 </body>
 </html>
