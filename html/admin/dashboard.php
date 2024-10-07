@@ -35,6 +35,7 @@
             <button class="button" onclick="window.location.href='registro/empleado.php'">Registrar Empleado (Supervisor de carga)</button>
             <button class="button" onclick="window.location.href='registro/gerente_operaciones.php'">Registrar Gerente de Operaciones</button>
             <button class="button" onclick="window.location.href='registro/gerente_financiero.php'">Registrar Gerente Financiero</button>
+            <button class="button" onclick="window.location.href='registro/puerto.php'">Registrar Puerto</button>
             <button class="button" onclick="window.location.href='modificar_usuario.php'">Modificar Usuario</button>
             <button id="eliminar-usuario-btn" onclick="openModal()">Eliminar Usuario</button>
         </div>

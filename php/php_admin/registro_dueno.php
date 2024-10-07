@@ -1,10 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/nautiteq/php/conn_db.php';
 
-function cleanInput($data, $conn) {
-    return mysqli_real_escape_string($conn, trim($data));
-}
-
 if (isset($_POST['registroDueno'])) {
     $username = $_POST['username_dueno'];
     $password_dueno = $_POST['password_dueno'];

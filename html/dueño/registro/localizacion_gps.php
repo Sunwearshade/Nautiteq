@@ -13,6 +13,9 @@
     </script>
     <script src="../../../scripts/scriptsDueno/localizacion_gps.js" defer></script>
     <title>Localización GPS</title>
+    <?php
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/nautiteq/php/php_dueno/guardar_localizacion.php';
+    ?>
 </head>
 <body>
     <div class="header">
@@ -27,10 +30,21 @@
 
     <div id="localizacion-info" class="container" style="display: none;">
         <h3>Información de Localización</h3>
-        <p>Nombre del Barco: <span id="nombre-barco"></span></p>
-        <p>Fecha y Hora: <span id="fecha-hora"></span></p>
-        <p>Latitud: <span id="latitud"></span></p>
-        <p>Longitud: <span id="longitud"></span></p>
+        <form id="guardarLocalizacion" name="guardarLocalizacion" method="post">
+            <p>Nombre del Barco: <span id="nombre-barco"></span></p>
+            <input type="hidden" id="nombreBarco" name="nombreBarco">
+            
+            <p>Fecha y Hora: <span id="fecha-hora"></span></p>
+            <input type="hidden" id="fechaHora" name="fechaHora">
+            
+            <p>Latitud: <span id="latitud"></span></p>
+            <input type="hidden" id="latitudInput" name="latitud">
+            
+            <p>Longitud: <span id="longitud"></span></p>
+            <input type="hidden" id="longitudInput" name="longitud">
+            
+            <button type="submit" class="button" name="guardarLocalizacion">Guardar Localización</button>
+        </form>
     </div>
 
     <div id="mimapa" class="container"></div>

@@ -16,9 +16,14 @@ create table viaje(viaje_id int primary key not null auto_increment, puerto_orig
 
 alter table viaje add constraint fk_b_v foreign key (barco_id) references barcos(barco_id);
 
-create table localizacion_barco(barco_id int primary key not null auto_increment, latitud float not null, longitud float not null, fecha date not null, hora time not null);
-
-alter table localizacion_barco add constraint fk_lb_b foreign key (barco_id) references barcos(barco_id);
+CREATE TABLE localizacion_barco (
+    localizacion_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    barco_id INT NOT NULL,
+    latitud DECIMAL(10, 7) NOT NULL,
+    longitud DECIMAL(10, 7) NOT NULL,
+    fecha_hora DATETIME NOT NULL,
+    CONSTRAINT fk_lb_b FOREIGN KEY (barco_id) REFERENCES barcos(barco_id)
+);
 
 create table productos(producto_id int primary key not null auto_increment, nombre varchar(100) not null, nomenclatura varchar(100) not null, tipo varchar(100) not null);
 
@@ -33,3 +38,5 @@ create table empleado(empleado_id int primary key not null AUTO_INCREMENT, nombr
 
 ALTER TABLE viaje ADD COLUMN pais_origen VARCHAR(100) NOT NULL;
 ALTER TABLE viaje ADD COLUMN pais_destino VARCHAR(100) NOT NULL;
+
+create table puertos(puerto_id int primary key not null AUTO_INCREMENT, nombre_puerto varchar (100) not null, latitud decimal(10, 7) not null, longitud decimal(10, 7) not null);

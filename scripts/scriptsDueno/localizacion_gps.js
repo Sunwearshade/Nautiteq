@@ -52,9 +52,14 @@ function obtenerLocalizacion() {
     const fecha_hora = new Date().toLocaleString();
 
     document.getElementById('nombre-barco').textContent = `Barco ${barcoSeleccionado}`;
-    document.getElementById('fecha-hora').textContent = fecha_hora;
+    document.getElementById('fecha-hora').textContent= fecha_hora;
     document.getElementById('latitud').textContent = latitudActual.toFixed(5);
     document.getElementById('longitud').textContent = longitudActual.toFixed(5);
+
+    document.getElementById('nombreBarco').value = barcoSeleccionado;
+    document.getElementById('fechaHora').value = fecha_hora;
+    document.getElementById('latitudInput').value = latitudActual.toFixed(5);
+    document.getElementById('longitudInput').value = longitudActual.toFixed(5);
 
     if (marker) {
         marker.setLatLng([latitudActual, longitudActual]);

@@ -7,8 +7,10 @@
     <title>Consulta del Barco Más Cercano</title>
 </head>
 <body>
+    <header class="header">
+        <h1>Consultar Barco Más Cercano a un Puerto</h1>
+    </header>
     <div class="container">
-        <h1>Consulta del Barco Más Cercano</h1>
         <form id="boatForm">
             <label for="port">Puerto:</label>
             <input type="text" id="port" required>
