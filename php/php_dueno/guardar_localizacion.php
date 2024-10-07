@@ -8,7 +8,7 @@ if (isset($_POST['guardarLocalizacion'])) {
     $longitud= $_POST['longitud'];
 
     if (!empty($barco_id) && !empty($fecha_hora) && !empty($latitud) && !empty($longitud)) {
-        $query = "INSERT INTO localizacion_barco(barco_id, latitud, longitud, fecha_hora) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO localizacion_barco(barco_id, latitud, longitud, fecha) VALUES (?, ?, ?, ?)";
 
         $stmt = $conn->prepare($query);
         $stmt->bind_param("idds", $barco_id, $latitud, $longitud, $fecha_hora);
