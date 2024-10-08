@@ -23,6 +23,20 @@ if ($result->num_rows > 0) {
 
 $stmt->close();
 
+$query_puertos = "SELECT nombre_puerto AS nombre, puerto_id FROM puertos";
+$stmt = $conn->prepare($query_puertos);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$puertos = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $puertos[] = $row;
+    }
+}
+
+$stmt->close();
+
 if (isset($_POST['registrarViaje'])) {
     $puerto_origen = $_POST['puertoOrigen'];
     $pais_origen = $_POST['paisOrigen'];

@@ -32,7 +32,18 @@
             </div>
             <div class="input-group">
                 <label for="puertoOrigen">Puerto de Origen</label>
-                <input type="text" id="puertoOrigen" name="puertoOrigen" required>
+                <select id="puertoSeleccionado" name="puertoSeleccionado">
+                    <option value="">Seleccione...</option>
+                    <?php
+                    if (!empty($puertos)) {
+                        foreach ($puertos as $puerto) {
+                            echo "<option value='" . $puerto['puerto_id'] . "'>" . $puerto['nombre'] . "</option>";
+                        }
+                    } else {
+                        echo "<option value=''>No hay puertos registrados</option>";
+                    }
+                    ?>
+                </select>
             </div>
             <div class="input-group">
                 <label for="paisOrigen">País de Origen</label>
@@ -40,7 +51,18 @@
             </div>
             <div class="input-group">
                 <label for="puertoDestino">Puerto de Destino</label>
-                <input type="text" id="puertoDestino" name="puertoDestino" required>
+                <select id="puertoSeleccionado" name="puertoSeleccionado">
+                    <option value="">Seleccione...</option>
+                    <?php
+                    if (!empty($puertos)) {
+                        foreach ($puertos as $puerto) {
+                            echo "<option value='" . $puerto['puerto_id'] . "'>" . $puerto['nombre'] . "</option>";
+                        }
+                    } else {
+                        echo "<option value=''>No hay puertos registrados</option>";
+                    }
+                    ?>
+                </select>
             </div>
             <div class="input-group">
                 <label for="paisDestino">País de Destino</label>
